@@ -1,14 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:DemoOfLabelRenderer"
-             x:Class="DemoOfLabelRenderer.MainPage">
+<ContentPage
+    x:Class="DemoOfLabelRenderer.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DemoOfLabelRenderer">
 
-    <StackLayout >
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ScrollView
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        VerticalScrollBarVisibility="Never">
+        <StackLayout
+            Padding="10"
+            HorizontalOptions="FillAndExpand"
+            Spacing="15"
+            VerticalOptions="FillAndExpand">
+
+            <Frame
+                Padding="7"
+                BackgroundColor="White"
+                CornerRadius="5"
+                HasShadow="True"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill">
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="2"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        BackgroundColor="White"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        Text="What is Lorem Ipsum ?"
+                        VerticalOptions="Start" />
+                    <Label
+                        BackgroundColor="White"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                        VerticalOptions="Start" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Padding="7"
+                BackgroundColor="White"
+                CornerRadius="5"
+                HasShadow="True"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill">
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="2"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        BackgroundColor="White"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Why do we use it?"
+                        VerticalOptions="Start" />
+                    <Label
+                        BackgroundColor="White"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                        VerticalOptions="Start" />
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

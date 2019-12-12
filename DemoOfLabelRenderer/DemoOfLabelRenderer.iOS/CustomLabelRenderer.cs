@@ -35,16 +35,29 @@ namespace DemoOfLabelRenderer.iOS
         }
         void UpdateText()
         {
-            if (string.IsNullOrWhiteSpace(Element?.Text))
+            if (string.IsNullOrWhiteSpace(Element?.Text) && Element?.FormattedText?.Spans.Count == 0)
             {
                 Control.Text = string.Empty;
                 return;
             }
 
             NSError error = null;
-            Control.AttributedText = new NSAttributedString(NSData.FromString(Element.Text),
-                                                            new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.PlainText },
-                                                            ref error);
+            if (!string.IsNullOrWhiteSpace(Element?.Text))
+            {
+                Control.AttributedText = new NSAttributedString(NSData.FromString(Element.Text),
+                                                           new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.PlainText },
+                                                           ref error);
+            }
+
+            if (Element?.FormattedText?.Spans.Count > 0)
+            {
+                foreach (var item in Element?.FormattedText.Spans)
+                {
+                    Control.AttributedText = new NSAttributedString(NSData.FromString(item.Text),
+                                                           new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.PlainText },
+                                                           ref error);
+                }
+            }
 
             switch (Element.FontAttributes)
             {
@@ -61,6 +74,9 @@ namespace DemoOfLabelRenderer.iOS
                     Control.Font = UIFont.BoldSystemFontOfSize(new nfloat(Element.FontSize));
                     break;
             }
+
+            Control.BackgroundColor = Element.BackgroundColor.ToUIColor();
+            // Control.TextAlignment = UITextAlignment.Justified;
             Control.Selectable = true;
             Control.Editable = false;
             Control.ScrollEnabled = false;
